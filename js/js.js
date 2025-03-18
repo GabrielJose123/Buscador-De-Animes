@@ -1,9 +1,14 @@
 
+const texto = document.getElementById("busca")
+
+let AnimesPesquisados = []
+
 async function PegarUrl() {
     const src = document.getElementById("busca")
     const url = `https://api.jikan.moe/v4/anime?q=${src.value}`;
 
 
+   
     const response = await fetch(url)
     if (src.value !== "") { 
        
@@ -13,8 +18,7 @@ async function PegarUrl() {
 
             if (data.data.length === 0) {
                 alert("deu erro")
-            } else {
-                console.log("deu ruim neguin")
+            } else if (!AnimesPesquisados.includes(src.value)) {
 
       
                
@@ -32,7 +36,19 @@ async function PegarUrl() {
                  
                 const div = document.getElementById("anime")
                 div.appendChild(imagemDoAnime)
+                
+                AnimesPesquisados.push(src.value)
+
+                console.log(AnimesPesquisados)
+
+                src.value = ""
+                
+                
+
+                
     
+            }else {
+                alert("esse anime ja foi adicionado a lista     ")
             }
         }
     } else {
@@ -40,7 +56,17 @@ async function PegarUrl() {
     }
 }
 
-document.addEventListener('keydown', function(event) {
-
+texto.addEventListener('focus',function(focus){
+    document.addEventListener('keydown', function(event) {
+        if (event.key == 'Enter' || event.key == 'Tab') {
+            PegarUrl()
+        }
+    })
+    
+    
 })
+
+function focar() {
+    texto.focus()
+}
 
