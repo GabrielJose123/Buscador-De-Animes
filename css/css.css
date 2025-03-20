@@ -20,3 +20,28 @@ html,body {
     gap: 5%;
 }
 
+.anime {
+    height: 250px; 
+    width: 170px;   
+    display: flex;   
+    justify-content: flex-start;
+     gap: 30px;
+     border: green;
+}
+
+.class {
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    
+    height: 280px; 
+    width: 200px;   
+    display: flex;   
+    justify-content: flex-start; 
+    flex-direction: column;
+    border: 10px;
+    border: green;
+    
+    
+
+}
+
