@@ -21,7 +21,8 @@ async function PegarUrl() {
 
             if (data.data.length === 0) {
                 console.log("deu erro")
-            } else if (!AnimesPesquisados.includes(src.value)) {
+            } 
+           if (!AnimesPesquisados.includes(src.value)) {
                 let imagem;
                 let titulo;
                 let ep;
