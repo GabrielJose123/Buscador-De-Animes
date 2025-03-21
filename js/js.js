@@ -7,10 +7,6 @@ let AnimesPesquisados = []
 
 let animeDiv;
 
-let animeMarcado = false;
-
-
-
 
 async function PegarUrl() {
     const src = document.getElementById("busca")
@@ -95,8 +91,7 @@ async function PegarUrl() {
                 
                 animeDiv.appendChild(textEp)
             
-                AnimesPesquisados.push(src.value)
-            
+                AnimesPesquisados.push(titulo)
                 console.log(AnimesPesquisados)
             
                 src.value = ""
@@ -146,35 +141,47 @@ function focar() {
 let AnimesDeletor = [];
 
 mostra.addEventListener('click',function(event){
+    let animeMarcado = false;
+
+    
 
     const animeClicado = event.target.closest("div");
-    if (animeClicado) {
-        animeMarcado = true;
-        AnimesSelecionado = animeClicado.id
-        console.log("FOi clicado o animme:", animeClicado.id)
-        if (animeClicado.id && animeClicado.id !== "mostra") {
+
+    if (animeClicado && animeMarcado == false) {
+        let animeMarcado = true;
+        if (animeMarcado) {
+            AnimesSelecionado = animeClicado.id
+
+            console.log("FOi clicado o animme:", animeClicado.id);
+        }
+        if (animeMarcado == true &&  animeClicado.id && animeClicado.id !== "mostra" && document.getElementById(`${AnimesSelecionado}`).style.border !== "1px solid red") {
             document.getElementById(`${AnimesSelecionado}`).style.border = "1px solid red"
             if (!AnimesDeletor.includes(AnimesSelecionado)) {
                 AnimesDeletor.push(AnimesSelecionado)
                 console.log("a", AnimesDeletor)
+
+            }
+        }else if (animeMarcado == true &&  animeClicado.id && animeClicado.id !== "mostra" && document.getElementById(`${AnimesSelecionado}`).style.border == "1px solid red") {
+            console.log("deu bom")
+            document.getElementById(`${AnimesSelecionado}`).style.removeProperty('border')
+            if(AnimesDeletor.includes(AnimesSelecionado)) {
+                AnimesDeletor.splice(AnimesSelecionado)
             }
         }
     }
+
+   
 })
-
-
-
 
 function Delete() {
     if (AnimesDeletor.length > 0) {
         AnimesDeletor.forEach(element => {
             document.getElementById(`${element}`).remove()
+            AnimesDeletor = []
+            AnimesPesquisados.filter(item => !AnimesDeletor.includes(item));
+            console.log(AnimesPesquisados)
+            
         })
-        
-        if (AnimesDeletor.includes(AnimesPesquisados)) {
-            let same = AnimesDeletor.includes(AnimesPesquisados);
-            console.log(same)  
-        }
     }else {
         alert("selecione algo para deletar")
     }
