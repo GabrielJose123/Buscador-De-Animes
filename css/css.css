@@ -1,76 +1,115 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
-html,body {
-    height: 100%;
-    width: 100%;
-    background-color: black;
-}
+        html,body {
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
 
-.home-bar {
-    width: 100%;
-    height: 15%;
-    background-color: rgb(0, 119, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5%;
-}
+        .home-bar {
+            width: 100%;
+            height: 15%;
+            background: linear-gradient(90deg, rgb(0,119,255), rgb(0,180,255));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
 
-.anime {
-    height: 250px; 
-    width: 170px;   
-    display: flex;   
-    justify-content: flex-start;
-     gap: 30px;
-     border: green;
-}
+       
+        .slogan {
+            font-size: 24px !important;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+            text-align: right;
+            position: relative !important; 
+            padding: 0 !important;
+            width: auto !important;
+            height: auto !important;
+        }
 
-.class {
-    font-size: 14px;
-    color: rgb(255, 255, 255);
-    
-    height: 70%; 
-    width: 200px;   
-    display: flex;   
-    justify-content: flex-start; 
-    flex-direction: column;
-    border: 10px;
-    border: green;
-}
+      
+        .busca {
+            flex: 1;
+            max-width: 400px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 25px;
+            padding: 0 15px;
+            box-shadow: inset 0px 2px 6px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+        .busca:focus-within {
+            box-shadow: 0px 0px 8px rgba(0,119,255,0.8);
+        }
 
-.busca {
-    width:30%; /* Aumentando a largura para 80% da tela */
-    height: 40px; /* Tamanho fixo para a altura da busca */
-    display: flex;
-    align-items: center; /* Centraliza verticalmente os itens */
-    justify-content: space-between; /* Distribui os itens igualmente com espaço entre eles */
-    margin: 20px; /* Centraliza o elemento horizontalmente */
-    background-color: white;
-    border-radius: 25px; /* Bordas arredondadas */
-    padding: 2px 10px; /* Adiciona espaçamento interno */
-}
+        input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            background: transparent;
+        }
 
-input {
-    border: none;
-    outline: none;
-    width: 85%; /* O campo de input ocupa 85% da largura do contêiner */
-    padding: 10px;
-    font-size: 16px;
-    height: 100%;
-}
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
 
-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
+        button img {
+            width: 22px;
+            height: 22px;
+            filter: brightness(0) saturate(100%) invert(32%) sepia(90%) saturate(2600%) hue-rotate(200deg) brightness(95%) contrast(90%);
+            transition: 0.2s;
+        }
+        button:hover img {
+            transform: scale(1.1);
+        }
 
-button img {
-    width: 25px;
-    height: 25px;
-}
+       
+        .home-bar p {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .home-bar p:hover {
+            transform: scale(1.1);
+        }
+        .home-bar svg, 
+        .home-bar img {
+            fill: white;
+        }
+
+        .anime {
+            height: 250px; 
+            width: 170px;   
+            display: flex;   
+            justify-content: flex-start;
+            gap: 30px;
+            border: green;
+        }
+
+        .class {
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            height: 70%; 
+            width: 200px;   
+            display: flex;   
+            justify-content: flex-start; 
+            flex-direction: column;
+            border: 10px;
+            border: green;
+        }
